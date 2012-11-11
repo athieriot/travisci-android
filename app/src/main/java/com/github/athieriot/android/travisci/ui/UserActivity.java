@@ -33,8 +33,5 @@ public class UserActivity extends BootstrapActivity {
 
         avatarLoader.bind(avatar, user);
         name.setText(String.format("%s %s", user.getFirstName(), user.getLastName()));
-
     }
-
-
 }

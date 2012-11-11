@@ -8,15 +8,20 @@ import static com.github.athieriot.android.travisci.core.Constants.Http.PARSE_RE
 import static com.github.athieriot.android.travisci.core.Constants.Http.URL_CHECKINS;
 import static com.github.athieriot.android.travisci.core.Constants.Http.URL_NEWS;
 import static com.github.athieriot.android.travisci.core.Constants.Http.URL_USERS;
+import static com.github.athieriot.android.travisci.core.Constants.Http.URL_BUILDS;
 
 import com.github.kevinsawicki.http.HttpRequest;
 import com.github.kevinsawicki.http.HttpRequest.HttpRequestException;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParseException;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -61,6 +66,12 @@ public class BootstrapService {
     private static class CheckInWrapper {
 
         private List<CheckIn> results;
+
+    }
+
+    private static class BuildsWrapper {
+
+        private List<Build> results;
 
     }
 
@@ -118,7 +129,7 @@ public class BootstrapService {
      */
     protected HttpRequest execute(HttpRequest request) throws IOException {
         if (!configure(request).ok())
-            throw new IOException("Unexpected response code: " + request.code());
+            throw new IOException("Unexpected response code: " + request.code() + " / Body: " + request.body() + " / " + request.getConnection().getURL());
         return request;
     }
 
@@ -161,9 +172,10 @@ public class BootstrapService {
     }
 
     private <V> V fromJson(HttpRequest request, Class<V> target) throws IOException {
+
         Reader reader = request.bufferedReader();
         try {
-            return GSON.fromJson(reader, target);
+            return GSON. fromJson(reader, target);
         } catch (JsonParseException e) {
             throw new JsonException(e);
         } finally {
@@ -229,4 +241,39 @@ public class BootstrapService {
         }
     }
 
+    /**
+     * Get all TravisCI builds from Travis web site
+     *
+     * @return non-null but possibly empty list of builds
+     * @throws IOException
+     */
+    public List<Build> getBuilds() throws IOException {
+        try {
+            HttpRequest request = execute(HttpRequest.get(URL_BUILDS));
+
+            Type buildsType = new TypeToken<List<Build>>(){}.getType();
+            List<Build> response = returnBuildList(request, buildsType);
+
+            if (response != null && !response.isEmpty())
+                return response;
+            return Collections.emptyList();
+        } catch (HttpRequestException e) {
+            throw e.getCause();
+        }
+    }
+
+    private List<Build> returnBuildList(HttpRequest request, Type buildsType) throws JsonException {
+        Reader reader = request.bufferedReader();
+        try {
+            return GSON.fromJson(reader, buildsType);
+        } catch (JsonParseException e) {
+            throw new JsonException(e);
+        } finally {
+            try {
+                reader.close();
+            } catch (IOException ignored) {
+                // Ignored
+            }
+        }
+    }
 }

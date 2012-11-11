@@ -34,7 +34,6 @@
             </intent-filter>
         </activity>
 
-
         <service
             android:name=".authenticator.AccountAuthenticatorService"
             android:process=":auth" >
@@ -55,10 +54,10 @@
                 No intent-filter here! This activity is only ever launched by
                 someone who explicitly knows the class name
             -->
+
         </activity>
 
-        <activity android:name=".ui.NewsActivity" />
-        <activity android:name=".ui.UserActivity" android:label="@string/app_name" />
+        <activity android:name=".ui.BuildActivity" />
 
     </application>
 
