@@ -47,9 +47,6 @@ public class BuildListFragment extends ItemListFragment<Build> {
 
         listView.setFastScrollEnabled(true);
         listView.setDividerHeight(0);
-
-        getListAdapter().addHeader(activity.getLayoutInflater()
-                        .inflate(R.layout.build_list_item_labels, null));
     }
 
 

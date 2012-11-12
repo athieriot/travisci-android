@@ -1,5 +1,6 @@
 package com.github.athieriot.android.travisci.ui;
 
+import android.graphics.Color;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import com.github.athieriot.android.travisci.R;
@@ -38,7 +39,7 @@ public class BuildListAdapter extends SingleTypeAdapter<Build> {
 
     @Override
     public long getItemId(final int position) {
-        final String id =  null;
+        final String id =  getItem(position).getId();
         return !TextUtils.isEmpty(id) ? id.hashCode() : super
                 .getItemId(position);
     }
@@ -52,7 +53,5 @@ public class BuildListAdapter extends SingleTypeAdapter<Build> {
     protected void update(int position, Build build) {
 
         setText(R.id.b_name, build.getSlug());
-
     }
-
 }
