@@ -56,16 +56,6 @@ public class Constants {
         public static final String URL_USERS = URL_BASE + "/1/users";
 
         /**
-         * List News URL
-         */
-        public static final String URL_NEWS = URL_BASE + "/1/classes/News";
-
-        /**
-         * List Checkin's URL
-         */
-        public static final String URL_CHECKINS = URL_BASE + "/1/classes/Locations";
-
-        /**
          * Base URL for travis requests
          */
         public static final String URL_TRAVIS_BASE = "https://api.travis-ci.org";
@@ -73,7 +63,7 @@ public class Constants {
         /**
          * List Build's URL
          */
-        public static final String URL_BUILDS = URL_TRAVIS_BASE + "/repositories.json";
+        public static final String URL_BUILDS = URL_TRAVIS_BASE + "/repos/";
 
         public static final String PARSE_APP_ID = "zHb2bVia6kgilYRWWdmTiEJooYA17NnkBSUVsr4H";
         public static final String PARSE_REST_API_KEY = "N2kCY1T3t3Jfhf9zpJ5MCURn3b25UpACILhnf5u9";
@@ -90,8 +80,6 @@ public class Constants {
 
     public static class Extra {
         private Extra() {}
-
-        public static final String NEWS_ITEM = "news_item";
 
         public static final String USER = "user";
 
