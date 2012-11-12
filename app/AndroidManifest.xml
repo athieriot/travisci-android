@@ -34,6 +34,7 @@
             </intent-filter>
         </activity>
 
+        <!--
         <service
             android:name=".authenticator.AccountAuthenticatorService"
             android:process=":auth" >
@@ -45,17 +46,20 @@
                 android:name="android.accounts.AccountAuthenticator"
                 android:resource="@xml/authenticator" />
         </service>
+        -->
 
+        <!--
         <activity
             android:name=".authenticator.BootstrapAuthenticatorActivity"
             android:excludeFromRecents="true" >
-
+        -->
             <!--
                 No intent-filter here! This activity is only ever launched by
                 someone who explicitly knows the class name
             -->
-
+        <!--
         </activity>
+        -->
 
         <activity android:name=".ui.BuildActivity" />
 

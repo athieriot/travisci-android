@@ -53,7 +53,7 @@ public class BootstrapServiceTest {
      */
     @Before
     public void before() throws IOException {
-        service = new BootstrapService("foo", new UserAgentProvider()) {
+        service = new BootstrapService(new UserAgentProvider()) {
             protected HttpRequest execute(HttpRequest request) throws IOException {
                 return BootstrapServiceTest.this.request;
             }

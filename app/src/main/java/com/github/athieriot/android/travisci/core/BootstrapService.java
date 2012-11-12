@@ -63,8 +63,6 @@ public class BootstrapService {
         }
     }
 
-
-    private final String apiKey;
     private final String username;
     private final String password;
 
@@ -77,20 +75,17 @@ public class BootstrapService {
     public BootstrapService(final String username, final String password) {
         this.username = username;
         this.password = password;
-        this.apiKey = null;
     }
 
     /**
      * Create bootstrap service
      *
      * @param userAgentProvider
-     * @param apiKey
      */
-    public BootstrapService(final String apiKey, final UserAgentProvider userAgentProvider) {
+    public BootstrapService(final UserAgentProvider userAgentProvider) {
         this.userAgentProvider = userAgentProvider;
         this.username = null;
         this.password = null;
-        this.apiKey = apiKey;
     }
 
     /**

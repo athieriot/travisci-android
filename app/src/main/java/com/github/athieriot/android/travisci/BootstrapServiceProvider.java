@@ -14,7 +14,7 @@ import java.io.IOException;
  */
 public class BootstrapServiceProvider {
 
-    @Inject private ApiKeyProvider keyProvider;
+//    @Inject private ApiKeyProvider keyProvider;
     @Inject private UserAgentProvider userAgentProvider;
 
     /**
@@ -27,6 +27,6 @@ public class BootstrapServiceProvider {
      * @throws AccountsException
      */
     public BootstrapService getService() throws IOException, AccountsException {
-        return new BootstrapService(keyProvider.getAuthKey(), userAgentProvider);
+        return new BootstrapService(userAgentProvider);
     }
 }
