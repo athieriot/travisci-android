@@ -2,8 +2,6 @@
 package com.github.athieriot.android.travisci.ui;
 
 import android.content.Context;
-import android.util.Log;
-
 import roboguice.util.Ln;
 
 /**

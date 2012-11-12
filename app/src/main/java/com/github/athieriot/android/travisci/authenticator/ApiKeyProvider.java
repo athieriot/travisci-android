@@ -2,18 +2,17 @@
 
 package com.github.athieriot.android.travisci.authenticator;
 
-import static android.accounts.AccountManager.KEY_AUTHTOKEN;
-
 import android.accounts.AccountManager;
 import android.accounts.AccountManagerFuture;
 import android.accounts.AccountsException;
 import android.app.Activity;
 import android.os.Bundle;
-
 import com.github.athieriot.android.travisci.core.Constants;
 import com.google.inject.Inject;
 
 import java.io.IOException;
+
+import static android.accounts.AccountManager.KEY_AUTHTOKEN;
 
 /**
  * Bridge class that obtains a API key for the currently configured account

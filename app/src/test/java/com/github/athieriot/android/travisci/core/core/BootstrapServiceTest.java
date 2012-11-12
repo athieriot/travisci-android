@@ -2,16 +2,16 @@
 
 package com.github.athieriot.android.travisci.core.core;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.doReturn;
-
 import com.github.athieriot.android.travisci.core.BootstrapService;
-import com.github.athieriot.android.travisci.core.CheckIn;
-import com.github.athieriot.android.travisci.core.News;
+import com.github.athieriot.android.travisci.core.Build;
 import com.github.athieriot.android.travisci.core.User;
 import com.github.athieriot.android.travisci.core.UserAgentProvider;
 import com.github.kevinsawicki.http.HttpRequest;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -19,11 +19,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.doReturn;
 
 /**
  * Unit tests of {@link com.github.athieriot.android.travisci.core.BootstrapService}
@@ -84,21 +82,8 @@ public class BootstrapServiceTest {
     @Test
     public void getContentEmptyResponse() throws IOException {
         doReturn(createReader("")).when(request).bufferedReader();
-        List<News> content = service.getNews();
+        List<Build> content = service.getBuilds();
         assertNotNull(content);
         assertTrue(content.isEmpty());
-    }
-
-    /**
-     * Verify getting checkins with an empty response
-     *
-     * @throws IOException
-     */
-    @Test
-    public void getReferrersEmptyResponse() throws IOException {
-        doReturn(createReader("")).when(request).bufferedReader();
-        List<CheckIn> referrers = service.getCheckIns();
-        assertNotNull(referrers);
-        assertTrue(referrers.isEmpty());
     }
 }

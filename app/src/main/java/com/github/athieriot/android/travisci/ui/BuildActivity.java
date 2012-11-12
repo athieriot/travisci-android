@@ -6,6 +6,7 @@ import com.github.athieriot.android.travisci.R;
 import com.github.athieriot.android.travisci.core.Build;
 import roboguice.inject.InjectExtra;
 import roboguice.inject.InjectView;
+
 import static com.github.athieriot.android.travisci.core.Constants.Extra.BUILD;
 
 public class BuildActivity extends BootstrapActivity {

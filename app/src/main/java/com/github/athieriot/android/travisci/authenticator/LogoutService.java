@@ -5,13 +5,8 @@ import android.accounts.AccountManager;
 import android.accounts.AccountManagerFuture;
 import android.content.Context;
 import android.util.Log;
-
 import com.github.athieriot.android.travisci.core.Constants;
 import com.google.inject.Inject;
-
-import java.util.concurrent.Callable;
-import java.util.concurrent.Executor;
-
 import roboguice.inject.ContextSingleton;
 import roboguice.util.RoboAsyncTask;
 

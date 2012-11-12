@@ -1,12 +1,9 @@
 package com.github.athieriot.android.travisci.ui;
 
-import android.graphics.Color;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import com.github.athieriot.android.travisci.R;
-import com.github.athieriot.android.travisci.core.AvatarLoader;
 import com.github.athieriot.android.travisci.core.Build;
-import com.github.athieriot.android.travisci.core.User;
 import com.github.kevinsawicki.wishlist.SingleTypeAdapter;
 
 import java.text.SimpleDateFormat;

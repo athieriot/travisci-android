@@ -1,7 +1,6 @@
 
 package com.github.athieriot.android.travisci.ui;
 
-import android.accounts.AccountManager;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
@@ -10,32 +9,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
-import android.widget.AdapterView;
+import android.widget.*;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 import com.github.athieriot.android.travisci.R;
+import com.github.athieriot.android.travisci.R.id;
+import com.github.athieriot.android.travisci.R.layout;
 import com.github.athieriot.android.travisci.authenticator.LogoutService;
 import com.github.kevinsawicki.wishlist.SingleTypeAdapter;
 import com.github.kevinsawicki.wishlist.Toaster;
 import com.github.kevinsawicki.wishlist.ViewUtils;
-import com.github.athieriot.android.travisci.R.id;
-import com.github.athieriot.android.travisci.R.layout;
-import com.github.athieriot.android.travisci.R.menu;
 import com.github.rtyley.android.sherlock.roboguice.fragment.RoboSherlockFragment;
 import com.google.inject.Inject;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.Callable;
-
-import roboguice.util.RoboAsyncTask;
 
 /**
  * Base fragment for displaying a list of items that loads with a progress bar

@@ -9,26 +9,14 @@ import android.view.View;
 import android.widget.ListView;
 import com.github.athieriot.android.travisci.BootstrapServiceProvider;
 import com.github.athieriot.android.travisci.R;
-import com.github.athieriot.android.travisci.core.AvatarLoader;
 import com.github.athieriot.android.travisci.core.Build;
-import com.github.athieriot.android.travisci.core.Constants;
-import com.github.athieriot.android.travisci.core.User;
-import com.github.kevinsawicki.http.HttpRequest;
 import com.github.kevinsawicki.wishlist.SingleTypeAdapter;
 import com.google.inject.Inject;
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
 
-import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
 import static com.github.athieriot.android.travisci.core.Constants.Extra.BUILD;
-import static com.github.athieriot.android.travisci.core.Constants.Extra.USER;
-import static com.github.athieriot.android.travisci.core.Constants.Http.URL_USERS;
 
 public class BuildListFragment extends ItemListFragment<Build> {
 

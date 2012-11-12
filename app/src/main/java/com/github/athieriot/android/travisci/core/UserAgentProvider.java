@@ -5,16 +5,14 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.telephony.TelephonyManager;
-
 import com.google.inject.Inject;
 import com.google.inject.Provider;
+import roboguice.util.Ln;
+import roboguice.util.Strings;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Locale;
-
-import roboguice.util.Ln;
-import roboguice.util.Strings;
 
 public class UserAgentProvider implements Provider<String> {
     @Inject protected Application app;

@@ -2,13 +2,13 @@
 
 package com.github.athieriot.android.travisci;
 
-import static android.os.Build.VERSION.SDK_INT;
-import static android.os.Build.VERSION_CODES.FROYO;
 import android.app.Application;
 import android.app.Instrumentation;
 import android.content.Context;
-
 import com.github.kevinsawicki.http.HttpRequest;
+
+import static android.os.Build.VERSION.SDK_INT;
+import static android.os.Build.VERSION_CODES.FROYO;
 
 /**
  * travisci application

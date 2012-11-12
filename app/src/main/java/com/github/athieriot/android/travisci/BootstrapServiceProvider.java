@@ -2,7 +2,6 @@
 package com.github.athieriot.android.travisci;
 
 import android.accounts.AccountsException;
-
 import com.github.athieriot.android.travisci.authenticator.ApiKeyProvider;
 import com.github.athieriot.android.travisci.core.BootstrapService;
 import com.github.athieriot.android.travisci.core.UserAgentProvider;

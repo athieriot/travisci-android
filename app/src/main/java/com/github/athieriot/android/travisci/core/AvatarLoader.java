@@ -1,8 +1,5 @@
 package com.github.athieriot.android.travisci.core;
 
-import static android.graphics.Bitmap.CompressFormat.PNG;
-import static android.graphics.Bitmap.Config.ARGB_8888;
-import static android.view.View.VISIBLE;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -11,11 +8,11 @@ import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.ImageView;
-
 import com.actionbarsherlock.app.ActionBar;
 import com.github.athieriot.android.travisci.R;
 import com.github.kevinsawicki.http.HttpRequest;
 import com.google.inject.Inject;
+import roboguice.util.RoboAsyncTask;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -26,7 +23,9 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicReference;
 
-import roboguice.util.RoboAsyncTask;
+import static android.graphics.Bitmap.CompressFormat.PNG;
+import static android.graphics.Bitmap.Config.ARGB_8888;
+import static android.view.View.VISIBLE;
 
 /**
  * Avatar utilities

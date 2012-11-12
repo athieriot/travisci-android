@@ -1,23 +1,17 @@
 package com.github.athieriot.android.travisci.core;
 
 
-
-import static android.graphics.Bitmap.Config.ARGB_8888;
-import static android.graphics.Color.WHITE;
-import static android.graphics.PorterDuff.Mode.DST_IN;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Point;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.RectF;
+import android.graphics.*;
 import android.util.Log;
 import android.widget.ImageView;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+
+import static android.graphics.Bitmap.Config.ARGB_8888;
+import static android.graphics.Color.WHITE;
+import static android.graphics.PorterDuff.Mode.DST_IN;
 
 /**
  * Image utilities

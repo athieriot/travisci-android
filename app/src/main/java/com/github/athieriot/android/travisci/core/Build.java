@@ -5,6 +5,8 @@ import java.util.Date;
 
 public class Build  implements Serializable {
 
+    public static final String SUCCESS = "0";
+    public static final String FAILURE = "1";
     private String id;
 
     private String slug;
@@ -44,10 +46,10 @@ public class Build  implements Serializable {
     }
 
     public boolean isSuccessful() {
-        return last_build_status != null && last_build_status.equals("0");
+        return last_build_status != null && last_build_status.equals(SUCCESS);
     }
 
     public boolean isFail() {
-        return last_build_status != null && last_build_status.equals("1");
+        return last_build_status != null && last_build_status.equals(FAILURE);
     }
 }

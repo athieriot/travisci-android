@@ -2,19 +2,13 @@
 
 package com.github.athieriot.android.travisci.ui;
 
-import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
-import static android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-
-import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.view.Window;
 import com.github.athieriot.android.travisci.R;
 import com.github.athieriot.android.travisci.R.id;
 import com.github.rtyley.android.sherlock.roboguice.activity.RoboSherlockFragmentActivity;
 import com.viewpagerindicator.TitlePageIndicator;
-
 import roboguice.inject.InjectView;
 
 /**

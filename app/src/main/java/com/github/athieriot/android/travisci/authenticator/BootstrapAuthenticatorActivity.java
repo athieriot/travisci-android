@@ -1,21 +1,6 @@
 
 package com.github.athieriot.android.travisci.authenticator;
 
-import static android.R.layout.simple_dropdown_item_1line;
-import static android.accounts.AccountManager.KEY_ACCOUNT_NAME;
-import static android.accounts.AccountManager.KEY_ACCOUNT_TYPE;
-import static android.accounts.AccountManager.KEY_AUTHTOKEN;
-import static android.accounts.AccountManager.KEY_BOOLEAN_RESULT;
-import static android.view.KeyEvent.ACTION_DOWN;
-import static android.view.KeyEvent.KEYCODE_ENTER;
-import static android.view.inputmethod.EditorInfo.IME_ACTION_DONE;
-import static com.github.athieriot.android.travisci.core.Constants.Http.HEADER_PARSE_APP_ID;
-import static com.github.athieriot.android.travisci.core.Constants.Http.HEADER_PARSE_REST_API_KEY;
-import static com.github.athieriot.android.travisci.core.Constants.Http.PARSE_APP_ID;
-import static com.github.athieriot.android.travisci.core.Constants.Http.PARSE_REST_API_KEY;
-import static com.github.athieriot.android.travisci.core.Constants.Http.URL_AUTH;
-import static com.github.kevinsawicki.http.HttpRequest.get;
-import static com.github.kevinsawicki.http.HttpRequest.post;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.Dialog;
@@ -31,35 +16,33 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnKeyListener;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.*;
 import android.widget.TextView.OnEditorActionListener;
-
-import com.github.athieriot.android.travisci.core.Constants;
-import com.github.athieriot.android.travisci.core.User;
-import com.github.kevinsawicki.http.HttpRequest;
-import com.github.kevinsawicki.wishlist.Toaster;
 import com.github.athieriot.android.travisci.R.id;
 import com.github.athieriot.android.travisci.R.layout;
 import com.github.athieriot.android.travisci.R.string;
+import com.github.athieriot.android.travisci.core.Constants;
+import com.github.athieriot.android.travisci.core.User;
 import com.github.athieriot.android.travisci.ui.TextWatcherAdapter;
+import com.github.kevinsawicki.http.HttpRequest;
+import com.github.kevinsawicki.wishlist.Toaster;
 import com.github.rtyley.android.sherlock.roboguice.activity.RoboSherlockAccountAuthenticatorActivity;
 import com.google.gson.Gson;
-
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.List;
-
 import roboguice.inject.InjectView;
 import roboguice.util.Ln;
 import roboguice.util.RoboAsyncTask;
 import roboguice.util.Strings;
 
-import static com.github.athieriot.android.travisci.core.Constants.Http.USERNAME;
-import static com.github.athieriot.android.travisci.core.Constants.Http.PASSWORD;
+import java.util.ArrayList;
+import java.util.List;
+
+import static android.R.layout.simple_dropdown_item_1line;
+import static android.accounts.AccountManager.*;
+import static android.view.KeyEvent.ACTION_DOWN;
+import static android.view.KeyEvent.KEYCODE_ENTER;
+import static android.view.inputmethod.EditorInfo.IME_ACTION_DONE;
+import static com.github.athieriot.android.travisci.core.Constants.Http.*;
+import static com.github.kevinsawicki.http.HttpRequest.get;
 
 /**
  * Activity to authenticate the user against an API (example API on Parse.com)

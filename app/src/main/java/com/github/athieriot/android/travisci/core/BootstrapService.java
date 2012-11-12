@@ -1,15 +1,6 @@
 
 package com.github.athieriot.android.travisci.core;
 
-import static com.github.athieriot.android.travisci.core.Constants.Http.HEADER_PARSE_APP_ID;
-import static com.github.athieriot.android.travisci.core.Constants.Http.HEADER_PARSE_REST_API_KEY;
-import static com.github.athieriot.android.travisci.core.Constants.Http.PARSE_APP_ID;
-import static com.github.athieriot.android.travisci.core.Constants.Http.PARSE_REST_API_KEY;
-import static com.github.athieriot.android.travisci.core.Constants.Http.URL_CHECKINS;
-import static com.github.athieriot.android.travisci.core.Constants.Http.URL_NEWS;
-import static com.github.athieriot.android.travisci.core.Constants.Http.URL_USERS;
-import static com.github.athieriot.android.travisci.core.Constants.Http.URL_BUILDS;
-
 import com.github.kevinsawicki.http.HttpRequest;
 import com.github.kevinsawicki.http.HttpRequest.HttpRequestException;
 import com.google.gson.Gson;
@@ -20,10 +11,10 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 import java.io.Reader;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+
+import static com.github.athieriot.android.travisci.core.Constants.Http.*;
 
 /**
  * Bootstrap API service
@@ -52,27 +43,9 @@ public class BootstrapService {
      */
     private static final int TIMEOUT = 30 * 1000;
 
-
     private static class UsersWrapper {
 
         private List<User> results;
-    }
-
-    private static class NewsWrapper {
-
-        private List<News> results;
-    }
-
-    private static class CheckInWrapper {
-
-        private List<CheckIn> results;
-
-    }
-
-    private static class BuildsWrapper {
-
-        private List<Build> results;
-
     }
 
     private static class JsonException extends IOException {
@@ -205,41 +178,6 @@ public class BootstrapService {
         }
     }
 
-    /**
-     * Get all bootstrap News that exists on Parse.com
-     *
-     * @return non-null but possibly empty list of bootstrap
-     * @throws IOException
-     */
-    public List<News> getNews() throws IOException {
-        try {
-            HttpRequest request = execute(HttpRequest.get(URL_NEWS));
-            NewsWrapper response = fromJson(request, NewsWrapper.class);
-            if (response != null && response.results != null)
-                return response.results;
-            return Collections.emptyList();
-        } catch (HttpRequestException e) {
-            throw e.getCause();
-        }
-    }
-
-    /**
-     * Get all bootstrap Checkins that exists on Parse.com
-     *
-     * @return non-null but possibly empty list of bootstrap
-     * @throws IOException
-     */
-    public List<CheckIn> getCheckIns() throws IOException {
-        try {
-            HttpRequest request = execute(HttpRequest.get(URL_CHECKINS));
-            CheckInWrapper response = fromJson(request, CheckInWrapper.class);
-            if (response != null && response.results != null)
-                return response.results;
-            return Collections.emptyList();
-        } catch (HttpRequestException e) {
-            throw e.getCause();
-        }
-    }
 
     /**
      * Get all TravisCI builds from Travis web site
