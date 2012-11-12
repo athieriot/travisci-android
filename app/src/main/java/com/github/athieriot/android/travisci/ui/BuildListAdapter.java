@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Adapter to display a list of traffic items
  */
-public class BuildListAdapter extends SingleTypeAdapter<Build> {
+public class BuildListAdapter extends AlternatingColorListAdapter<Build> {
 
     private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("MMMM dd");
 
@@ -22,7 +22,7 @@ public class BuildListAdapter extends SingleTypeAdapter<Build> {
      * @param items
      */
     public BuildListAdapter(LayoutInflater inflater, List<Build> items) {
-        super(inflater, R.layout.build_list_item);
+        super(R.layout.build_list_item, inflater, items);
 
         setItems(items);
     }
@@ -49,15 +49,16 @@ public class BuildListAdapter extends SingleTypeAdapter<Build> {
 
     @Override
     protected void update(int position, Build build) {
+        super.update(position, build);
 
         setText(R.id.b_name, build.getSlug());
 
         if (build.isSuccessful()) {
-            setTextColor(R.id.b_name, Color.GREEN); //R.color.LimeGreen
+            setTextColor(R.id.b_name, Color.rgb(3, 128, 53));
         } else if (build.isFail()) {
-            setTextColor(R.id.b_name, Color.RED); //R.color.Crimson
+            setTextColor(R.id.b_name, Color.rgb(204, 0, 0));
         } else {
-            setTextColor(R.id.b_name, Color.GRAY); //R.color.LightGrey
+            setTextColor(R.id.b_name, Color.rgb(102, 102, 102));
         }
     }
 }

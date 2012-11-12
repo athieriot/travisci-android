@@ -3,6 +3,7 @@ package com.github.athieriot.android.travisci.ui;
 
 import android.view.LayoutInflater;
 import com.actionbarsherlock.R.color;
+import com.github.athieriot.android.travisci.R;
 import com.github.athieriot.android.travisci.R.drawable;
 import com.github.kevinsawicki.wishlist.SingleTypeAdapter;
 
@@ -44,13 +45,8 @@ public abstract class AlternatingColorListAdapter<V> extends
             LayoutInflater inflater, final List<V> items, boolean selectable) {
         super(inflater, layoutId);
 
-        if (selectable) {
-            primaryResource = drawable.table_background_selector;
-            secondaryResource = drawable.table_background_alternate_selector;
-        } else {
-            primaryResource = color.pager_background;
-            secondaryResource = color.pager_background_alternate;
-        }
+        primaryResource = R.color.white;
+        secondaryResource = R.color.travis_grey;
 
         setItems(items);
     }
