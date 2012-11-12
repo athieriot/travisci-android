@@ -53,11 +53,11 @@ public class BuildListAdapter extends SingleTypeAdapter<Build> {
         setText(R.id.b_name, build.getSlug());
 
         if (build.isSuccessful()) {
-            view.setBackgroundResource(R.color.LimeGreen);
+            setTextColor(R.id.b_name, Color.GREEN); //R.color.LimeGreen
         } else if (build.isFail()) {
-            view.setBackgroundResource(R.color.Crimson);
+            setTextColor(R.id.b_name, Color.RED); //R.color.Crimson
         } else {
-            view.setBackgroundResource(R.color.LightGrey);
+            setTextColor(R.id.b_name, Color.GRAY); //R.color.LightGrey
         }
     }
 }
