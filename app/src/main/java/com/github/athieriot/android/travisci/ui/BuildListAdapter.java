@@ -57,7 +57,7 @@ public class BuildListAdapter extends SingleTypeAdapter<Build> {
         } else if (build.isFail()) {
             view.setBackgroundResource(R.color.Crimson);
         } else {
-            view.setBackgroundResource(R.color.White);
+            view.setBackgroundResource(R.color.LightGrey);
         }
     }
 }

@@ -14,6 +14,6 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/table_text_selector" />
+            android:textColor="@color/Black" />
 
 </LinearLayout>
