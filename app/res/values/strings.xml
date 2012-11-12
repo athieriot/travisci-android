@@ -2,14 +2,12 @@
 
 <resources>
 
-    <string name="app_name">travisci</string>
+    <string name="app_name">TravisCI</string>
     <string name="content_column">Content</string>
     <string name="page_referrers">Referrers</string>
     <string name="refresh_action">Refresh</string>
     <string name="logout_action">Logout</string>
-    <string name="page_news">News</string>
     <string name="page_users">Users</string>
-    <string name="page_checkins">Check In\'s</string>
     <string name="page_builds">Latest Builds</string>
     <string name="title_column">Title</string>
     <string name="location_column">Location</string>
@@ -17,10 +15,7 @@
     <string name="date_column">Date</string>
     <string name="error_loading_users">Loading users failed</string>
     <string name="error_loading_builds">Loading builds failed</string>
-    <string name="error_loading_news">Loading news failed</string>
-    <string name="error_loading_checkins">Loading check-ins failed</string>
     <string name="no_users">No Users</string>
-    <string name="no_news">No News</string>
     <string name="no_builds">No Builds</string>
     <string name="avatar">Avatar</string>
     <string name="choose">Choose</string>

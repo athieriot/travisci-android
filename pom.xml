@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <version>1.0</version>
-    <groupId>com.github.athieriot.android.travisci</groupId>
-    <artifactId>com-github-athieriot-android-travisci-parent</artifactId>
+    <groupId>com.github.athieriot</groupId>
+    <artifactId>android-travisci-parent</artifactId>
     <name>travisci parent</name>
     <packaging>pom</packaging>
 
     <issueManagement>
-        <url>https://github.com.github.athieriot.android.travisci/issues</url>
+        <url>https://github.com/athieriot/travisci-android/issues</url>
         <system>GitHub Issues</system>
     </issueManagement>
 
@@ -24,17 +24,17 @@
     </licenses>
 
     <scm>
-        <url>https://github.com.github.athieriot.android.travisci</url>
-        <connection>scm:git:git://github.com.github.athieriot.android.travisci.git</connection>
-        <developerConnection>scm:git:git@github.com.github.athieriot.android.travisci.git</developerConnection>
+        <url>https://github.com/athieriot/travisci-android</url>
+        <connection>scm:git:git@github.com:athieriot/travisci-android.git</connection>
+        <developerConnection>scm:git:git@github.com:athieriot/travisci-android.git</developerConnection>
     </scm>
 
     <developers>
         <developer>
-            <email>donn@donnfelker.com</email>
-            <name>Donn Felker</name>
-            <url>https://github.com/donnfelker</url>
-            <id>donnfelker</id>
+            <email>a.thieriot@gmail.com</email>
+            <name>Aurélien Thieriot</name>
+            <url>aurelien.thier.io</url>
+            <id>athieriot</id>
         </developer>
     </developers>
 
