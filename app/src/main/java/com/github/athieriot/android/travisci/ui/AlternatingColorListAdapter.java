@@ -46,7 +46,7 @@ public abstract class AlternatingColorListAdapter<V> extends
         super(inflater, layoutId);
 
         primaryResource = R.color.white;
-        secondaryResource = R.color.travis_grey;
+        secondaryResource = R.color.travis_background_grey;
 
         setItems(items);
     }

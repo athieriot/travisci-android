@@ -35,7 +35,8 @@
 
     <color name="background_selected">#1fb6ed</color>
 
-    <color name="travis_grey">#F6F6F6</color>
+    <color name="travis_background_grey">#F6F6F6</color>
+    <color name="travis_underline_grey">#999</color>
 
     <color name="white">#FFFFFF</color>
     <color name="yellow">#FFFF00</color>
