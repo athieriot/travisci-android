@@ -3,7 +3,6 @@
 package com.github.athieriot.android.travisci.test;
 
 import android.test.ActivityInstrumentationTestCase2;
-
 import com.github.athieriot.android.travisci.ui.CarouselActivity;
 
 

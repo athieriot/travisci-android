@@ -3,6 +3,8 @@ package com.github.athieriot.android.travisci.ui;
 import android.graphics.Color;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
 import com.github.athieriot.android.travisci.R;
 import com.github.athieriot.android.travisci.core.Build;
 import com.github.kevinsawicki.wishlist.SingleTypeAdapter;
@@ -54,11 +56,26 @@ public class BuildListAdapter extends AlternatingColorListAdapter<Build> {
         setText(R.id.b_name, build.getSlug());
 
         if (build.isSuccessful()) {
-            setTextColor(R.id.b_name, Color.rgb(3, 128, 53));
+            this.setTextColor(view, R.id.b_name, Color.rgb(3, 128, 53));
         } else if (build.isFail()) {
-            setTextColor(R.id.b_name, Color.rgb(204, 0, 0));
+            this.setTextColor(view, R.id.b_name, Color.rgb(204, 0, 0));
         } else {
-            setTextColor(R.id.b_name, Color.rgb(102, 102, 102));
+            this.setTextColor(view, R.id.b_name, Color.rgb(102, 102, 102));
         }
+    }
+
+    /**
+     * Set text on text view with given id
+     *
+     * @param parentView
+     * @param childViewId
+     * @param color
+     * @return text view
+     */
+    protected TextView setTextColor(final View parentView, final int childViewId,
+                               final int color) {
+        final TextView textView = textView(parentView, childViewId);
+        textView.setTextColor(color);
+        return textView;
     }
 }

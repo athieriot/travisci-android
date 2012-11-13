@@ -28,15 +28,15 @@
             <version>${android.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.github.athieriot.android.travisci</groupId>
-            <artifactId>com-github-athieriot-android-travisci</artifactId>
+            <groupId>com.github.athieriot</groupId>
+            <artifactId>android-travisci</artifactId>
             <version>${project.version}</version>
             <scope>provided</scope>
             <type>apk</type>
         </dependency>
         <dependency>
-            <groupId>com.github.athieriot.android.travisci</groupId>
-            <artifactId>com-github-athieriot-android-travisci</artifactId>
+            <groupId>com.github.athieriot</groupId>
+            <artifactId>android-travisci</artifactId>
             <version>${project.version}</version>
             <scope>provided</scope>
             <type>jar</type>

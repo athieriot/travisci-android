@@ -6,12 +6,11 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.Instrumentation;
 import android.content.Context;
-import android.util.Log;
-import static com.github.athieriot.android.travisci.core.Constants.Auth.*;
-
 import com.github.athieriot.android.travisci.tests.R;
-
 import roboguice.util.Ln;
+
+import static com.github.athieriot.android.travisci.core.Constants.Auth.AUTHTOKEN_TYPE;
+import static com.github.athieriot.android.travisci.core.Constants.Auth.BOOTSTRAP_ACCOUNT_TYPE;
 
 /**
  * Utilities for verifying an account

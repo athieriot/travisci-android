@@ -5,9 +5,8 @@ package com.github.athieriot.android.travisci.test;
 import android.test.ActivityInstrumentationTestCase2;
 import android.view.View;
 import android.widget.Button;
-
-import com.github.athieriot.android.travisci.authenticator.BootstrapAuthenticatorActivity;
 import com.github.athieriot.android.travisci.R;
+import com.github.athieriot.android.travisci.authenticator.BootstrapAuthenticatorActivity;
 
 
 /**
