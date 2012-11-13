@@ -1,5 +1,10 @@
 package com.github.athieriot.android.travisci.core;
 
+import org.joda.time.DateTime;
+import org.joda.time.Period;
+import org.joda.time.format.PeriodFormatter;
+import org.joda.time.format.PeriodFormatterBuilder;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -7,6 +12,21 @@ public class Build  implements Serializable {
 
     public static final String SUCCESS = "0";
     public static final String FAILURE = "1";
+
+    public static final PeriodFormatter DAYS_HOURS_MINUTES_SECONDS_FORMATTER = new PeriodFormatterBuilder()
+                                        .appendDays()
+                                        .appendSuffix(" day", " days")
+                                        .appendSeparator(" and ")
+                                        .appendHours()
+                                        .appendSuffix(" hour", " hours")
+                                        .appendSeparator(" and ")
+                                        .appendMinutes()
+                                        .appendSuffix(" minute", " minutes")
+                                        .appendSeparator(" and ")
+                                        .appendSeconds()
+                                        .appendSuffix(" second", " seconds")
+                                        .toFormatter();
+
     private String id;
 
     private String slug;
@@ -123,5 +143,16 @@ public class Build  implements Serializable {
 
     public void setLast_build_finished_at(String last_build_finished_at) {
         this.last_build_finished_at = last_build_finished_at;
+    }
+
+    public String prettyPrintDuration() {
+        return "Duration: " + (getLast_build_duration() == null ? "-" : DAYS_HOURS_MINUTES_SECONDS_FORMATTER.print(new Period(getLast_build_duration() * 100)));
+    }
+
+    public String prettyPrintFinished() {
+        //TODO: Have the date as Date in Build object directly
+        DateTime start = DateTime.parse(getLast_build_started_at());
+        DateTime end = getLast_build_finished_at() == null ? null : DateTime.parse(getLast_build_finished_at());
+        return "Finished: " + (end == null ? "-" : DAYS_HOURS_MINUTES_SECONDS_FORMATTER.print(new Period(start, end)) + " ago");
     }
 }

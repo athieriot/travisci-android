@@ -19,8 +19,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/Black"
-                android:text="athieriot/JTaches" />
+                android:textColor="@color/Black" />
 
         <TextView
                 android:id="@+id/b_number"
@@ -28,22 +27,19 @@
                 android:layout_height="wrap_content"
                 android:gravity="right"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/Black"
-                android:text="25"/>
+                android:textColor="@color/Black" />
     </LinearLayout>
 
     <TextView
             android:id="@+id/b_duration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/travis_underline_grey"
-            android:text="Duration: Less than 5 seconds"/>
+            android:textColor="@color/travis_underline_grey" />
 
     <TextView
             android:id="@+id/b_finished"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/travis_underline_grey"
-            android:text="Finished: - "/>
+            android:textColor="@color/travis_underline_grey" />
 
 </LinearLayout>

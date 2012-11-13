@@ -36,14 +36,6 @@ public class BuildListAdapter extends AlternatingColorListAdapter<Build> {
         setItems(items);
     }
 
-    /**
-     * @param inflater
-     */
-    public BuildListAdapter(LayoutInflater inflater) {
-        this(inflater, null);
-
-    }
-
     @Override
     public long getItemId(final int position) {
         final String id =  getItem(position).getId();
@@ -61,34 +53,22 @@ public class BuildListAdapter extends AlternatingColorListAdapter<Build> {
         super.update(position, build);
 
         setText(R.id.b_name, build.getSlug());
-        setText(R.id.b_number, getLastBuildNumberText(build.getLast_build_number()));
-        setText(R.id.b_duration, getDurationText(build.getLast_build_duration()));
-        setText(R.id.b_finished, getFinishedText(build.getLast_build_started_at(), build.getLast_build_finished_at()));
+        setText(R.id.b_number, build.getLast_build_number());
+        setText(R.id.b_duration, build.prettyPrintDuration());
+        setText(R.id.b_finished, build.prettyPrintFinished());
 
         if (build.isSuccessful()) {
-            this.setTextColor(view, R.id.b_name, SUCCESS_COLOR);
-            this.setTextColor(view, R.id.b_number, SUCCESS_COLOR);
+            colorTextViews(SUCCESS_COLOR);
         } else if (build.isFail()) {
-            this.setTextColor(view, R.id.b_name, FAILURE_COLOR);
-            this.setTextColor(view, R.id.b_number, FAILURE_COLOR);
+            colorTextViews(FAILURE_COLOR);
         } else {
-            this.setTextColor(view, R.id.b_name, BUILDING_COLOR);
-            this.setTextColor(view, R.id.b_number, BUILDING_COLOR);
+            colorTextViews(BUILDING_COLOR);
         }
     }
 
-    private String getLastBuildNumberText(String lastBuildId) {
-        return lastBuildId == null ? "#" : lastBuildId;
-    }
-
-    private String getDurationText(Integer duration) {
-        return "Duration: " + (duration == null ? "-" : getPeriodFormatter().print(new Period(duration * 100)));
-    }
-
-    private String getFinishedText(String startDate, String finishedDate) {
-        DateTime start = DateTime.parse(startDate);
-        DateTime end = finishedDate == null ? null : DateTime.parse(finishedDate);
-        return "Finished: " + (end == null ? "-" : getPeriodFormatter().print(new Period(start, end)) + " ago");
+    private void colorTextViews(int color) {
+        this.setTextColor(view, R.id.b_name, color);
+        this.setTextColor(view, R.id.b_number, color);
     }
 
     /**
@@ -104,21 +84,5 @@ public class BuildListAdapter extends AlternatingColorListAdapter<Build> {
         final TextView textView = textView(parentView, childViewId);
         textView.setTextColor(color);
         return textView;
-    }
-
-    private PeriodFormatter getPeriodFormatter() {
-        return new PeriodFormatterBuilder()
-                .appendDays()
-                .appendSuffix(" day", " days")
-                .appendSeparator(" and ")
-                .appendHours()
-                .appendSuffix(" hour", " hours")
-                .appendSeparator(" and ")
-                .appendMinutes()
-                .appendSuffix(" minute", " minutes")
-                .appendSeparator(" and ")
-                .appendSeconds()
-                .appendSuffix(" second", " seconds")
-                .toFormatter();
     }
 }

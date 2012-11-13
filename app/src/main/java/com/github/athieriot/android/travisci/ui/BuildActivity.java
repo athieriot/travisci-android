@@ -14,6 +14,7 @@ public class BuildActivity extends BootstrapActivity {
     @InjectExtra(BUILD) protected Build build;
 
     @InjectView(R.id.b_name) protected TextView name;
+    @InjectView(R.id.b_description) protected TextView description;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,5 +23,6 @@ public class BuildActivity extends BootstrapActivity {
         setContentView(R.layout.build_view);
 
         name.setText(build.getSlug());
+        description.setText(build.getDescription());
     }
 }
