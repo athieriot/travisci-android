@@ -4,14 +4,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>com-github-athieriot-android-travisci-integration-tests</artifactId>
+    <artifactId>android-travisci-integration-tests</artifactId>
     <name>Android-Bootstrap integration tests</name>
     <packaging>apk</packaging>
 
     <parent>
         <version>1.0</version>
-        <groupId>com.github.athieriot.android.travisci</groupId>
-        <artifactId>com-github-athieriot-android-travisci-parent</artifactId>
+        <groupId>com.github.athieriot</groupId>
+        <artifactId>android-travisci-parent</artifactId>
     </parent>
 
     <dependencies>
