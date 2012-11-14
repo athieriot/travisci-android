@@ -16,8 +16,6 @@ public class LogoutService {
     @Inject protected Context context;
     @Inject protected AccountManager accountManager;
 
-
-
     public void logout(final Runnable onSuccess) {
 
         new LogoutTask(context, onSuccess).execute();
