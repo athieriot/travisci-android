@@ -159,6 +159,11 @@
                                     <storepass>${bootstrap.sign.storepass}</storepass>
                                     <keypass>${bootstrap.sign.keypass}</keypass>
                                     <verbose>true</verbose>
+
+                                    <arguments>
+                                        <argument>-sigalg</argument><argument>MD5withRSA</argument>
+                                        <argument>-digestalg</argument><argument>SHA1</argument>
+                                    </arguments>
                                 </configuration>
                             </execution>
                         </executions>
