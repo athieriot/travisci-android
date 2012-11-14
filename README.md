@@ -1,3 +1,3 @@
-# TravisCI App
+# Travis CI App
 
-Attempt to test Android developement by making a simple TravisCI client and using Android Bootstrap
+Attempt to test Android developement by making a simple Travis CI client and using Android Bootstrap

@@ -175,7 +175,7 @@ public class BootstrapService {
 
 
     /**
-     * Get all TravisCI builds from Travis web site
+     * Get all Travis CI builds from Travis web site
      *
      * @return non-null but possibly empty list of builds
      * @throws IOException
