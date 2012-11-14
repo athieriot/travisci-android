@@ -6,7 +6,7 @@
 
     <artifactId>android-travisci</artifactId>
     <packaging>apk</packaging>
-    <name>TravisCI</name>
+    <name>travisci</name>
     <url>https://github.com.github.athieriot.android.travisci</url>
 
     <parent>
