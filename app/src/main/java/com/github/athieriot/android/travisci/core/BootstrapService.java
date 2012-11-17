@@ -1,12 +1,16 @@
 
 package com.github.athieriot.android.travisci.core;
 
+import com.github.athieriot.android.travisci.core.deserializer.DateTimeDeserializer;
+import com.github.athieriot.android.travisci.core.entity.Build;
+import com.github.athieriot.android.travisci.core.entity.User;
 import com.github.kevinsawicki.http.HttpRequest;
 import com.github.kevinsawicki.http.HttpRequest.HttpRequestException;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParseException;
 import com.google.gson.reflect.TypeToken;
+import org.joda.time.DateTime;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -26,7 +30,9 @@ public class BootstrapService {
     /**
      * GSON instance to use for all request  with date format set up for proper parsing.
      */
-    public static final Gson GSON = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+    public static final Gson GSON = new GsonBuilder()
+            .registerTypeAdapter(DateTime.class, new DateTimeDeserializer())
+            .create();
 
     /**
      * You can also configure GSON with different naming policies for your API. Maybe your api is Rails
@@ -120,7 +126,7 @@ public class BootstrapService {
     private HttpRequest addCredentialsTo(HttpRequest request) {
 
         // Required params for
-        request.header(HEADER_PARSE_REST_API_KEY, PARSE_REST_API_KEY );
+        request.header(HEADER_PARSE_REST_API_KEY, PARSE_REST_API_KEY);
         request.header(HEADER_PARSE_APP_ID, PARSE_APP_ID);
 
         /**
@@ -143,7 +149,7 @@ public class BootstrapService {
 
         Reader reader = request.bufferedReader();
         try {
-            return GSON. fromJson(reader, target);
+            return GSON.fromJson(reader, target);
         } catch (JsonParseException e) {
             throw new JsonException(e);
         } finally {

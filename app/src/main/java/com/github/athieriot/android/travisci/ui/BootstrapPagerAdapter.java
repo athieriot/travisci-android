@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import com.github.athieriot.android.travisci.R;
+import com.github.athieriot.android.travisci.ui.Builds.BuildListFragment;
 
 /**
  * Pager adapter

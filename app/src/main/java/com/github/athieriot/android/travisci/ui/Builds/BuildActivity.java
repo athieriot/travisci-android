@@ -1,9 +1,10 @@
-package com.github.athieriot.android.travisci.ui;
+package com.github.athieriot.android.travisci.ui.Builds;
 
 import android.os.Bundle;
 import android.widget.TextView;
 import com.github.athieriot.android.travisci.R;
-import com.github.athieriot.android.travisci.core.Build;
+import com.github.athieriot.android.travisci.core.entity.Build;
+import com.github.athieriot.android.travisci.ui.BootstrapActivity;
 import roboguice.inject.InjectExtra;
 import roboguice.inject.InjectView;
 

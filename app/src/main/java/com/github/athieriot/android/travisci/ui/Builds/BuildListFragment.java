@@ -1,4 +1,4 @@
-package com.github.athieriot.android.travisci.ui;
+package com.github.athieriot.android.travisci.ui.Builds;
 
 import android.accounts.OperationCanceledException;
 import android.app.Activity;
@@ -9,7 +9,9 @@ import android.view.View;
 import android.widget.ListView;
 import com.github.athieriot.android.travisci.BootstrapServiceProvider;
 import com.github.athieriot.android.travisci.R;
-import com.github.athieriot.android.travisci.core.Build;
+import com.github.athieriot.android.travisci.core.entity.Build;
+import com.github.athieriot.android.travisci.ui.ItemListFragment;
+import com.github.athieriot.android.travisci.ui.ThrowableLoader;
 import com.github.kevinsawicki.wishlist.SingleTypeAdapter;
 import com.google.inject.Inject;
 

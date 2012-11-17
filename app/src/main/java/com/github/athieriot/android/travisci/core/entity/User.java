@@ -1,4 +1,4 @@
-package com.github.athieriot.android.travisci.core;
+package com.github.athieriot.android.travisci.core.entity;
 
 import java.io.Serializable;
 

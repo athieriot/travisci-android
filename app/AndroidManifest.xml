@@ -57,7 +57,7 @@
         </activity>
         -->
 
-        <activity android:name=".ui.BuildActivity" />
+        <activity android:name=".ui.Builds.BuildActivity" />
 
     </application>
 

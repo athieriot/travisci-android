@@ -1,4 +1,4 @@
-package com.github.athieriot.android.travisci.core;
+package com.github.athieriot.android.travisci.core.utils;
 
 
 import android.graphics.*;

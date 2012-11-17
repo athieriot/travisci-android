@@ -22,7 +22,7 @@ import com.github.athieriot.android.travisci.R.id;
 import com.github.athieriot.android.travisci.R.layout;
 import com.github.athieriot.android.travisci.R.string;
 import com.github.athieriot.android.travisci.core.Constants;
-import com.github.athieriot.android.travisci.core.User;
+import com.github.athieriot.android.travisci.core.entity.User;
 import com.github.athieriot.android.travisci.ui.TextWatcherAdapter;
 import com.github.kevinsawicki.http.HttpRequest;
 import com.github.kevinsawicki.wishlist.Toaster;

@@ -1,4 +1,4 @@
-package com.github.athieriot.android.travisci.ui;
+package com.github.athieriot.android.travisci.ui.Builds;
 
 import android.graphics.Color;
 import android.text.TextUtils;
@@ -6,11 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import com.github.athieriot.android.travisci.R;
-import com.github.athieriot.android.travisci.core.Build;
-import org.joda.time.DateTime;
-import org.joda.time.Period;
-import org.joda.time.format.PeriodFormatter;
-import org.joda.time.format.PeriodFormatterBuilder;
+import com.github.athieriot.android.travisci.core.entity.Build;
+import com.github.athieriot.android.travisci.ui.AlternatingColorListAdapter;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -38,7 +35,7 @@ public class BuildListAdapter extends AlternatingColorListAdapter<Build> {
 
     @Override
     public long getItemId(final int position) {
-        final String id =  getItem(position).getId();
+        final String id =  getItem(position).getId().toString();
         return !TextUtils.isEmpty(id) ? id.hashCode() : super
                 .getItemId(position);
     }
