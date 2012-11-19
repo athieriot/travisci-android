@@ -4,10 +4,9 @@ jdk:
   - oraclejdk7
   - openjdk6
   - oraclejdk6
-env:
-  - export ANDROID_HOME=~/builds/athieriot/travisci-android/android-sdk-linux
 script:
   - wget http://dl.google.com/android/android-sdk_r21-linux.tgz
   - tar -zxf android-sdk_r21-linux.tgz
+  - export ANDROID_HOME=~/builds/athieriot/travisci-android/android-sdk-linux
   - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
   - android update sdk --filter 1,2,4 --no-ui --force
