@@ -1,8 +1,9 @@
 package com.github.athieriot.android.travisci.core.entity;
 
-import org.joda.time.*;
-import org.joda.time.format.ISOPeriodFormat;
-import org.joda.time.format.PeriodFormat;
+import org.joda.time.DateTime;
+import org.joda.time.Duration;
+import org.joda.time.DurationFieldType;
+import org.joda.time.Period;
 import org.joda.time.format.PeriodFormatter;
 import org.joda.time.format.PeriodFormatterBuilder;
 

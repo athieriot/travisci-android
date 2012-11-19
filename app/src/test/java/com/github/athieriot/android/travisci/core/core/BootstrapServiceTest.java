@@ -3,9 +3,9 @@
 package com.github.athieriot.android.travisci.core.core;
 
 import com.github.athieriot.android.travisci.core.BootstrapService;
+import com.github.athieriot.android.travisci.core.UserAgentProvider;
 import com.github.athieriot.android.travisci.core.entity.Build;
 import com.github.athieriot.android.travisci.core.entity.User;
-import com.github.athieriot.android.travisci.core.UserAgentProvider;
 import com.github.kevinsawicki.http.HttpRequest;
 import org.joda.time.DateTime;
 import org.junit.Before;
@@ -21,7 +21,6 @@ import java.io.InputStreamReader;
 import java.util.List;
 
 import static org.junit.Assert.*;
-import static org.mockito.Matchers.contains;
 import static org.mockito.Mockito.doReturn;
 
 /**
