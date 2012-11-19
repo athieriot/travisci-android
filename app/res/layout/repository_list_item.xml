@@ -15,14 +15,14 @@
                   android:orientation="horizontal" >
 
         <TextView
-                android:id="@+id/b_name"
+                android:id="@+id/r_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/Black" />
 
         <TextView
-                android:id="@+id/b_number"
+                android:id="@+id/r_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right"
@@ -31,13 +31,13 @@
     </LinearLayout>
 
     <TextView
-            android:id="@+id/b_duration"
+            android:id="@+id/r_duration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/travis_underline_grey" />
 
     <TextView
-            android:id="@+id/b_finished"
+            android:id="@+id/r_finished"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/travis_underline_grey" />

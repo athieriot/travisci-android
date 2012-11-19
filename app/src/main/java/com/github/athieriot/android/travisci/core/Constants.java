@@ -61,9 +61,9 @@ public class Constants {
         public static final String URL_TRAVIS_BASE = "https://api.travis-ci.org";
 
         /**
-         * List Build's URL
+         * List Repository's URL
          */
-        public static final String URL_BUILDS = URL_TRAVIS_BASE + "/repos/";
+        public static final String URL_REPOSITORIES = URL_TRAVIS_BASE + "/repos/";
 
         public static final String PARSE_APP_ID = "zHb2bVia6kgilYRWWdmTiEJooYA17NnkBSUVsr4H";
         public static final String PARSE_REST_API_KEY = "N2kCY1T3t3Jfhf9zpJ5MCURn3b25UpACILhnf5u9";
@@ -83,7 +83,7 @@ public class Constants {
 
         public static final String USER = "user";
 
-        public static final String BUILD = "build";
+        public static final String REPOSITORY = "repository";
 
     }
 

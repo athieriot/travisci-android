@@ -8,15 +8,15 @@
     <string name="refresh_action">Refresh</string>
     <string name="logout_action">Logout</string>
     <string name="page_users">Users</string>
-    <string name="page_builds">Latest Builds</string>
+    <string name="page_repos">Latest Repositories</string>
     <string name="title_column">Title</string>
     <string name="location_column">Location</string>
     <string name="user_column">User</string>
     <string name="date_column">Date</string>
     <string name="error_loading_users">Loading users failed</string>
-    <string name="error_loading_builds">Loading builds failed</string>
+    <string name="error_loading_repositories">Loading repositories failed</string>
     <string name="no_users">No Users</string>
-    <string name="no_builds">No Builds</string>
+    <string name="no_repository">No Repository</string>
     <string name="avatar">Avatar</string>
     <string name="choose">Choose</string>
 

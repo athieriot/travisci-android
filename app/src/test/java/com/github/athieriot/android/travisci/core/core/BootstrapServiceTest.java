@@ -4,7 +4,7 @@ package com.github.athieriot.android.travisci.core.core;
 
 import com.github.athieriot.android.travisci.core.BootstrapService;
 import com.github.athieriot.android.travisci.core.UserAgentProvider;
-import com.github.athieriot.android.travisci.core.entity.Build;
+import com.github.athieriot.android.travisci.core.entity.Repository;
 import com.github.athieriot.android.travisci.core.entity.User;
 import com.github.kevinsawicki.http.HttpRequest;
 import org.joda.time.DateTime;
@@ -82,7 +82,7 @@ public class BootstrapServiceTest {
     @Test
     public void getBuildsEmptyResponse() throws IOException {
         doReturn(createReader("")).when(request).bufferedReader();
-        List<Build> content = service.getBuilds();
+        List<Repository> content = service.getRepositories();
         assertNotNull(content);
         assertTrue(content.isEmpty());
     }
@@ -104,24 +104,24 @@ public class BootstrapServiceTest {
                 "}]")
         ).when(request).bufferedReader();
 
-        List<Build> builds = service.getBuilds();
-        assertNotNull(builds);
-        assertFalse(builds.isEmpty());
-        Build build = builds.get(0);
+        List<Repository> repositories = service.getRepositories();
+        assertNotNull(repositories);
+        assertFalse(repositories.isEmpty());
+        Repository repository = repositories.get(0);
 
-        assertEquals(186118L, build.getId().longValue());
-        assertEquals("athieriot/JTaches", build.getSlug());
-        assertEquals("JTaches provides a Java way to execute tasks on file events. Mostly inspired by the Guard ruby gem ", build.getDescription());
-        assertEquals(3049849L, build.getLast_build_id().longValue());
-        assertEquals("90", build.getLast_build_number());
-        assertEquals(1, build.getLast_build_status().intValue());
-        assertTrue(build.isFinished());
-        assertEquals(0, build.getLast_build_result().intValue());
-        assertTrue(build.isSuccessful());
-        assertEquals(117L, build.getLast_build_duration().longValue());
-        assertNull(build.getLast_build_language());
-        assertEquals(new DateTime("2012-11-03T22:07:13Z"), build.getLast_build_started_at());
-        assertEquals(new DateTime("2012-11-03T22:09:31Z"), build.getLast_build_finished_at());
+        assertEquals(186118L, repository.getId().longValue());
+        assertEquals("athieriot/JTaches", repository.getSlug());
+        assertEquals("JTaches provides a Java way to execute tasks on file events. Mostly inspired by the Guard ruby gem ", repository.getDescription());
+        assertEquals(3049849L, repository.getLast_build_id().longValue());
+        assertEquals("90", repository.getLast_build_number());
+        assertEquals(1, repository.getLast_build_status().intValue());
+        assertTrue(repository.isFinished());
+        assertEquals(0, repository.getLast_build_result().intValue());
+        assertTrue(repository.isSuccessful());
+        assertEquals(117L, repository.getLast_build_duration().longValue());
+        assertNull(repository.getLast_build_language());
+        assertEquals(new DateTime("2012-11-03T22:07:13Z"), repository.getLast_build_started_at());
+        assertEquals(new DateTime("2012-11-03T22:09:31Z"), repository.getLast_build_finished_at());
     }
 
     @Test
@@ -133,13 +133,13 @@ public class BootstrapServiceTest {
                 "}]")
         ).when(request).bufferedReader();
 
-        List<Build> builds = service.getBuilds();
-        assertNotNull(builds);
-        assertFalse(builds.isEmpty());
-        Build build = builds.get(0);
+        List<Repository> repositories = service.getRepositories();
+        assertNotNull(repositories);
+        assertFalse(repositories.isEmpty());
+        Repository repository = repositories.get(0);
 
-        assertEquals("Duration: 1 minute and 57 seconds", build.prettyPrintDuration());
-        assertEquals("Finished: 13 days, 13 hours, 50 minutes and 29 seconds ago", build.prettyPrintFinished(new DateTime("2012-11-17T12:00:00Z")));
+        assertEquals("Duration: 1 minute and 57 seconds", repository.prettyPrintDuration());
+        assertEquals("Finished: 13 days, 13 hours, 50 minutes and 29 seconds ago", repository.prettyPrintFinished(new DateTime("2012-11-17T12:00:00Z")));
     }
 
     @Test
@@ -147,13 +147,13 @@ public class BootstrapServiceTest {
         doReturn(createReader("[{}]")
         ).when(request).bufferedReader();
 
-        List<Build> builds = service.getBuilds();
-        assertNotNull(builds);
-        assertFalse(builds.isEmpty());
-        Build build = builds.get(0);
+        List<Repository> repositories = service.getRepositories();
+        assertNotNull(repositories);
+        assertFalse(repositories.isEmpty());
+        Repository repository = repositories.get(0);
 
-        assertEquals("Duration: -", build.prettyPrintDuration());
-        assertEquals("Finished: -", build.prettyPrintFinished(new DateTime("2012-11-17T12:00:00Z")));
+        assertEquals("Duration: -", repository.prettyPrintDuration());
+        assertEquals("Finished: -", repository.prettyPrintFinished(new DateTime("2012-11-17T12:00:00Z")));
     }
 
     @Test
@@ -163,13 +163,13 @@ public class BootstrapServiceTest {
                 "}]")
         ).when(request).bufferedReader();
 
-        List<Build> builds = service.getBuilds();
-        assertNotNull(builds);
-        assertFalse(builds.isEmpty());
-        Build build = builds.get(0);
+        List<Repository> repositories = service.getRepositories();
+        assertNotNull(repositories);
+        assertFalse(repositories.isEmpty());
+        Repository repository = repositories.get(0);
 
-        assertTrue(build.isRunning());
-        assertFalse(build.isFail());
-        assertFalse(build.isSuccessful());
+        assertTrue(repository.isRunning());
+        assertFalse(repository.isFail());
+        assertFalse(repository.isSuccessful());
     }
 }

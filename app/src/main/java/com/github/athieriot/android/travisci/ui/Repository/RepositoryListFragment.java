@@ -1,4 +1,4 @@
-package com.github.athieriot.android.travisci.ui.Builds;
+package com.github.athieriot.android.travisci.ui.Repository;
 
 import android.accounts.OperationCanceledException;
 import android.app.Activity;
@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.ListView;
 import com.github.athieriot.android.travisci.BootstrapServiceProvider;
 import com.github.athieriot.android.travisci.R;
-import com.github.athieriot.android.travisci.core.entity.Build;
+import com.github.athieriot.android.travisci.core.entity.Repository;
 import com.github.athieriot.android.travisci.ui.ItemListFragment;
 import com.github.athieriot.android.travisci.ui.ThrowableLoader;
 import com.github.kevinsawicki.wishlist.SingleTypeAdapter;
@@ -18,9 +18,9 @@ import com.google.inject.Inject;
 import java.util.Collections;
 import java.util.List;
 
-import static com.github.athieriot.android.travisci.core.Constants.Extra.BUILD;
+import static com.github.athieriot.android.travisci.core.Constants.Extra.REPOSITORY;
 
-public class BuildListFragment extends ItemListFragment<Build> {
+public class RepositoryListFragment extends ItemListFragment<Repository> {
 
     @Inject private BootstrapServiceProvider serviceProvider;
 
@@ -28,7 +28,7 @@ public class BuildListFragment extends ItemListFragment<Build> {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        setEmptyText(R.string.no_builds);
+        setEmptyText(R.string.no_repository);
     }
 
     @Override
@@ -42,14 +42,14 @@ public class BuildListFragment extends ItemListFragment<Build> {
 
 
     @Override
-    public Loader<List<Build>> onCreateLoader(int id, Bundle args) {
-        final List<Build> initialItems = items;
-        return new ThrowableLoader<List<Build>>(getActivity(), items) {
+    public Loader<List<Repository>> onCreateLoader(int id, Bundle args) {
+        final List<Repository> initialItems = items;
+        return new ThrowableLoader<List<Repository>>(getActivity(), items) {
             @Override
-            public List<Build> loadData() throws Exception {
+            public List<Repository> loadData() throws Exception {
 
                 try {
-                    List<Build> lastest = serviceProvider.getService().getBuilds();
+                    List<Repository> lastest = serviceProvider.getService().getRepositories();
                     if (lastest != null)
                         return lastest;
                     else
@@ -66,24 +66,24 @@ public class BuildListFragment extends ItemListFragment<Build> {
     }
 
     public void onListItemClick(ListView l, View v, int position, long id) {
-        Build build = ((Build) l.getItemAtPosition(position));
+        Repository repository = ((Repository) l.getItemAtPosition(position));
 
-        startActivity(new Intent(getActivity(), BuildActivity.class).putExtra(BUILD, build));
+        startActivity(new Intent(getActivity(), RepositoryActivity.class).putExtra(REPOSITORY, repository));
     }
 
     @Override
-    public void onLoadFinished(Loader<List<Build>> loader, List<Build> items) {
+    public void onLoadFinished(Loader<List<Repository>> loader, List<Repository> items) {
         super.onLoadFinished(loader, items);
 
     }
 
     @Override
     protected int getErrorMessage(Exception exception) {
-        return R.string.error_loading_builds;
+        return R.string.error_loading_repositories;
     }
 
     @Override
-    protected SingleTypeAdapter<Build> createAdapter(List<Build> items) {
-        return new BuildListAdapter(getActivity().getLayoutInflater(), items);
+    protected SingleTypeAdapter<Repository> createAdapter(List<Repository> items) {
+        return new RepositoryListAdapter(getActivity().getLayoutInflater(), items);
     }
 }

@@ -2,7 +2,7 @@
 package com.github.athieriot.android.travisci.core;
 
 import com.github.athieriot.android.travisci.core.deserializer.DateTimeDeserializer;
-import com.github.athieriot.android.travisci.core.entity.Build;
+import com.github.athieriot.android.travisci.core.entity.Repository;
 import com.github.athieriot.android.travisci.core.entity.User;
 import com.github.kevinsawicki.http.HttpRequest;
 import com.github.kevinsawicki.http.HttpRequest.HttpRequestException;
@@ -181,17 +181,17 @@ public class BootstrapService {
 
 
     /**
-     * Get all Travis CI builds from Travis web site
+     * Get all Travis CI repos from Travis web site
      *
-     * @return non-null but possibly empty list of builds
+     * @return non-null but possibly empty list of repos
      * @throws IOException
      */
-    public List<Build> getBuilds() throws IOException {
+    public List<Repository> getRepositories() throws IOException {
         try {
-            HttpRequest request = execute(HttpRequest.get(URL_BUILDS));
+            HttpRequest request = execute(HttpRequest.get(URL_REPOSITORIES));
 
-            Type buildsType = new TypeToken<List<Build>>(){}.getType();
-            List<Build> response = returnBuildList(request, buildsType);
+            Type repositoryType = new TypeToken<List<Repository>>(){}.getType();
+            List<Repository> response = returnRepositoryList(request, repositoryType);
 
             if (response != null && !response.isEmpty())
                 return response;
@@ -201,10 +201,10 @@ public class BootstrapService {
         }
     }
 
-    private List<Build> returnBuildList(HttpRequest request, Type buildsType) throws JsonException {
+    private List<Repository> returnRepositoryList(HttpRequest request, Type repositoryType) throws JsonException {
         Reader reader = request.bufferedReader();
         try {
-            return GSON.fromJson(reader, buildsType);
+            return GSON.fromJson(reader, repositoryType);
         } catch (JsonParseException e) {
             throw new JsonException(e);
         } finally {

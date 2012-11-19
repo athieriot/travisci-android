@@ -8,7 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import com.github.athieriot.android.travisci.R;
-import com.github.athieriot.android.travisci.ui.Builds.BuildListFragment;
+import com.github.athieriot.android.travisci.ui.Repository.RepositoryListFragment;
 
 /**
  * Pager adapter
@@ -38,9 +38,9 @@ public class BootstrapPagerAdapter extends FragmentPagerAdapter {
         Bundle bundle = new Bundle();
         switch (position) {
         case 0:
-            BuildListFragment buildsFragment = new BuildListFragment();
-            buildsFragment.setArguments(bundle);
-            return buildsFragment;
+            RepositoryListFragment repositoriesFragment = new RepositoryListFragment();
+            repositoriesFragment.setArguments(bundle);
+            return repositoriesFragment;
         default:
             return null;
         }
@@ -50,7 +50,7 @@ public class BootstrapPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position) {
         case 0:
-            return resources.getString(R.string.page_builds);
+            return resources.getString(R.string.page_repos);
         default:
             return null;
         }

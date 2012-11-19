@@ -13,7 +13,7 @@ import java.util.Locale;
 import static org.joda.time.PeriodType.forFields;
 import static org.joda.time.format.PeriodFormat.wordBased;
 
-public class Build  implements Serializable {
+public class Repository implements Serializable {
 
     public static final Integer RESULT_SUCCESS = 0;
     public static final Integer RESULT_FAILURE = 1;
