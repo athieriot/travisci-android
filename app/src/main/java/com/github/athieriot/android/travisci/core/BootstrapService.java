@@ -4,6 +4,7 @@ package com.github.athieriot.android.travisci.core;
 import com.github.athieriot.android.travisci.core.deserializer.DateTimeDeserializer;
 import com.github.athieriot.android.travisci.core.entity.Repository;
 import com.github.athieriot.android.travisci.core.entity.User;
+import com.github.athieriot.android.travisci.core.entity.Worker;
 import com.github.kevinsawicki.http.HttpRequest;
 import com.github.kevinsawicki.http.HttpRequest.HttpRequestException;
 import com.google.gson.Gson;
@@ -145,11 +146,10 @@ public class BootstrapService {
         return request;
     }
 
-    private <V> V fromJson(HttpRequest request, Class<V> target) throws IOException {
-
+    private <T> T returnTypeFromJson(HttpRequest request, Type toType) throws JsonException {
         Reader reader = request.bufferedReader();
         try {
-            return GSON.fromJson(reader, target);
+            return GSON.fromJson(reader, toType);
         } catch (JsonParseException e) {
             throw new JsonException(e);
         } finally {
@@ -170,7 +170,9 @@ public class BootstrapService {
     public List<User> getUsers() throws IOException {
         try {
             HttpRequest request = execute(HttpRequest.get(URL_USERS));
-            UsersWrapper response = fromJson(request, UsersWrapper.class);
+
+            Type userWrapperType = new TypeToken<UsersWrapper>(){}.getType();
+            UsersWrapper response = this.<UsersWrapper>returnTypeFromJson(request, userWrapperType);
             if (response != null && response.results != null)
                 return response.results;
             return Collections.emptyList();
@@ -178,7 +180,6 @@ public class BootstrapService {
             throw e.getCause();
         }
     }
-
 
     /**
      * Get all Travis CI repos from Travis web site
@@ -190,8 +191,8 @@ public class BootstrapService {
         try {
             HttpRequest request = execute(HttpRequest.get(URL_REPOSITORIES));
 
-            Type repositoryType = new TypeToken<List<Repository>>(){}.getType();
-            List<Repository> response = returnRepositoryList(request, repositoryType);
+            Type type = new TypeToken<List<Repository>>(){}.getType();
+            List<Repository> response = this.<List<Repository>>returnTypeFromJson(request, type);
 
             if (response != null && !response.isEmpty())
                 return response;
@@ -201,18 +202,24 @@ public class BootstrapService {
         }
     }
 
-    private List<Repository> returnRepositoryList(HttpRequest request, Type repositoryType) throws JsonException {
-        Reader reader = request.bufferedReader();
+    /**
+     * Get all Travis CI workers from Travis web site
+     *
+     * @return non-null but possibly empty list of workers
+     * @throws IOException
+     */
+    public List<Worker> getWorkers() throws IOException {
         try {
-            return GSON.fromJson(reader, repositoryType);
-        } catch (JsonParseException e) {
-            throw new JsonException(e);
-        } finally {
-            try {
-                reader.close();
-            } catch (IOException ignored) {
-                // Ignored
-            }
+            HttpRequest request = execute(HttpRequest.get(URL_WORKERS));
+
+            Type type = new TypeToken<List<Worker>>(){}.getType();
+            List<Worker> response = this.<List<Worker>>returnTypeFromJson(request, type);
+
+            if (response != null && !response.isEmpty())
+                return response;
+            return Collections.emptyList();
+        } catch (HttpRequestException e) {
+            throw e.getCause();
         }
     }
 }

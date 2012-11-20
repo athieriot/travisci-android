@@ -38,22 +38,19 @@ public class Constants {
     public static class Http {
         private Http() {}
 
-
-
         /**
          * Base URL for all requests
          */
         public static final String URL_BASE = "https://api.parse.com";
-
         /**
          * Authentication URL
          */
         public static final String URL_AUTH = URL_BASE + "/1/login";
-
         /**
          * List Users URL
          */
         public static final String URL_USERS = URL_BASE + "/1/users";
+
 
         /**
          * Base URL for travis requests
@@ -65,6 +62,11 @@ public class Constants {
          */
         public static final String URL_REPOSITORIES = URL_TRAVIS_BASE + "/repos/";
 
+        /**
+         * List Worker's URL
+         */
+        public static final String URL_WORKERS = URL_TRAVIS_BASE + "/workers/";
+
         public static final String PARSE_APP_ID = "zHb2bVia6kgilYRWWdmTiEJooYA17NnkBSUVsr4H";
         public static final String PARSE_REST_API_KEY = "N2kCY1T3t3Jfhf9zpJ5MCURn3b25UpACILhnf5u9";
         public static final String HEADER_PARSE_REST_API_KEY = "X-Parse-REST-API-Key";
@@ -73,8 +75,6 @@ public class Constants {
         public static final String USERNAME = "username";
         public static final String PASSWORD = "password";
         public static final String SESSION_TOKEN = "sessionToken";
-
-
     }
 
 
@@ -85,6 +85,7 @@ public class Constants {
 
         public static final String REPOSITORY = "repository";
 
+        public static final String WORKER = "worker";
     }
 
     public static class Intent {

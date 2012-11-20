@@ -39,8 +39,6 @@ public class RepositoryListFragment extends ItemListFragment<Repository> {
         listView.setDividerHeight(0);
     }
 
-
-
     @Override
     public Loader<List<Repository>> onCreateLoader(int id, Bundle args) {
         final List<Repository> initialItems = items;

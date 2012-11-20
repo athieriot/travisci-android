@@ -6,31 +6,40 @@ import java.util.StringTokenizer;
 
 public class Config {
 
-    private String script;
-
     private List<String> before_install;
+
+    private List<String> install;
+
+    private List<String> script;
 
     private String rvm;
 
-    private Map<String, String> env;
+    private List<String> env;
 
     private Notifications notifications;
 
     private String bundler_args;
-
+//
 //    "matrix": {
 //        "allow_failures": [{
 //            "rvm": "2.0.0"
 //        }]
 //    },
 
-
-    public String getScript() {
+    public List<String> getScript() {
         return script;
     }
 
-    public void setScript(String script) {
+    public void setScript(List<String> script) {
         this.script = script;
+    }
+
+    public List<String> getInstall() {
+        return install;
+    }
+
+    public void setInstall(List<String> install) {
+        this.install = install;
     }
 
     public List<String> getBefore_install() {
@@ -49,11 +58,11 @@ public class Config {
         this.rvm = rvm;
     }
 
-    public Map<String, String> getEnv() {
+    public List<String> getEnv() {
         return env;
     }
 
-    public void setEnv(Map<String, String> env) {
+    public void setEnv(List<String> env) {
         this.env = env;
     }
 

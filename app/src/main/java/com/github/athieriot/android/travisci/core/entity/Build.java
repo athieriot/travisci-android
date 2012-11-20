@@ -14,7 +14,7 @@ public class Build {
 
     private String state;
 
-    private boolean pull_request;
+    private Long pull_request;
 
     public Long getId() {
         return id;
@@ -64,11 +64,11 @@ public class Build {
         this.state = state;
     }
 
-    public boolean isPull_request() {
+    public Long getPull_request() {
         return pull_request;
     }
 
-    public void setPull_request(boolean pull_request) {
+    public void setPull_request(Long pull_request) {
         this.pull_request = pull_request;
     }
 }
