@@ -2,7 +2,9 @@ package com.github.athieriot.android.travisci.core.entity;
 
 import org.joda.time.DateTime;
 
-public class Worker {
+import java.io.Serializable;
+
+public class Worker implements Serializable {
 
     private Long id;
 

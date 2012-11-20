@@ -179,7 +179,7 @@ public class Repository implements Serializable {
     public String prettyPrintFinished(DateTime now) {
         String prettyFinished = "-";
 
-        if(last_build_finished_at != null) {
+        if(last_build_finished_at != null && last_build_finished_at.isBeforeNow()) {
             Period buildPeriod = new Period(last_build_finished_at, now);
             buildPeriod = buildPeriod.normalizedStandard(forFields(DAYS_HOURS_MINUTES_SECONDS));
             prettyFinished = wordBased(Locale.ENGLISH).print(buildPeriod) + " ago";

@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import com.github.athieriot.android.travisci.R;
 import com.github.athieriot.android.travisci.ui.Repository.RepositoryListFragment;
+import com.github.athieriot.android.travisci.ui.Workers.WorkerListFragment;
 
 /**
  * Pager adapter
@@ -30,7 +31,7 @@ public class BootstrapPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 1;
+        return 2;
     }
 
     @Override
@@ -41,6 +42,10 @@ public class BootstrapPagerAdapter extends FragmentPagerAdapter {
             RepositoryListFragment repositoriesFragment = new RepositoryListFragment();
             repositoriesFragment.setArguments(bundle);
             return repositoriesFragment;
+        case 1:
+            WorkerListFragment workerListFragment = new WorkerListFragment();
+            workerListFragment.setArguments(bundle);
+            return workerListFragment;
         default:
             return null;
         }
@@ -51,6 +56,8 @@ public class BootstrapPagerAdapter extends FragmentPagerAdapter {
         switch (position) {
         case 0:
             return resources.getString(R.string.page_repos);
+        case 1:
+            return resources.getString(R.string.page_workers);
         default:
             return null;
         }

@@ -1,6 +1,8 @@
 package com.github.athieriot.android.travisci.core.entity;
 
-public class Notifications {
+import java.io.Serializable;
+
+public class Notifications implements Serializable {
 
     private boolean email;
 

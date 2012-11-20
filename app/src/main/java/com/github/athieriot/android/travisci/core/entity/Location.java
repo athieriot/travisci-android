@@ -1,6 +1,8 @@
 package com.github.athieriot.android.travisci.core.entity;
 
-public class Location {
+import java.io.Serializable;
+
+public class Location implements Serializable {
 
     private double latitude;
     private double longitude;

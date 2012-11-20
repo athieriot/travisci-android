@@ -59,6 +59,8 @@
 
         <activity android:name=".ui.Repository.RepositoryActivity" />
 
+        <activity android:name=".ui.Workers.WorkerActivity" />
+
     </application>
 
 </manifest>

@@ -4,10 +4,8 @@ package com.github.athieriot.android.travisci.core.core;
 
 import com.github.athieriot.android.travisci.core.BootstrapService;
 import com.github.athieriot.android.travisci.core.UserAgentProvider;
-import com.github.athieriot.android.travisci.core.entity.Repository;
 import com.github.athieriot.android.travisci.core.entity.User;
 import com.github.kevinsawicki.http.HttpRequest;
-import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,7 +18,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.doReturn;
 
 /**

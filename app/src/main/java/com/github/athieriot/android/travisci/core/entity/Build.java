@@ -1,6 +1,8 @@
 package com.github.athieriot.android.travisci.core.entity;
 
-public class Build {
+import java.io.Serializable;
+
+public class Build implements Serializable {
 
     private Long id;
 
@@ -14,7 +16,7 @@ public class Build {
 
     private String state;
 
-    private Long pull_request;
+    private String pull_request;
 
     public Long getId() {
         return id;
@@ -64,11 +66,11 @@ public class Build {
         this.state = state;
     }
 
-    public Long getPull_request() {
+    public String getPull_request() {
         return pull_request;
     }
 
-    public void setPull_request(Long pull_request) {
+    public void setPull_request(String pull_request) {
         this.pull_request = pull_request;
     }
 }

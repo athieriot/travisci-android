@@ -1,6 +1,8 @@
 package com.github.athieriot.android.travisci.core.entity;
 
-public class Payload {
+import java.io.Serializable;
+
+public class Payload implements Serializable {
 
     private String type;
 
@@ -10,7 +12,7 @@ public class Payload {
 
     private Repository repository;
 
-    private Config config;
+//    private Config config;
 
     private String queue;
 
@@ -46,13 +48,13 @@ public class Payload {
         this.repository = repository;
     }
 
-    public Config getConfig() {
-        return config;
-    }
-
-    public void setConfig(Config config) {
-        this.config = config;
-    }
+//    public Config getConfig() {
+//        return config;
+//    }
+//
+//    public void setConfig(Config config) {
+//        this.config = config;
+//    }
 
     public String getQueue() {
         return queue;

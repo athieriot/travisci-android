@@ -5,7 +5,6 @@ package com.github.athieriot.android.travisci.core.core;
 import com.github.athieriot.android.travisci.core.BootstrapService;
 import com.github.athieriot.android.travisci.core.UserAgentProvider;
 import com.github.athieriot.android.travisci.core.entity.Repository;
-import com.github.athieriot.android.travisci.core.entity.User;
 import com.github.kevinsawicki.http.HttpRequest;
 import org.joda.time.DateTime;
 import org.junit.Before;
