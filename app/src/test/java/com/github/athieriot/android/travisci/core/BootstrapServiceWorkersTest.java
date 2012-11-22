@@ -1,9 +1,7 @@
 
 
-package com.github.athieriot.android.travisci.core.core;
+package com.github.athieriot.android.travisci.core;
 
-import com.github.athieriot.android.travisci.core.BootstrapService;
-import com.github.athieriot.android.travisci.core.UserAgentProvider;
 import com.github.athieriot.android.travisci.core.entity.Worker;
 import com.github.kevinsawicki.http.HttpRequest;
 import org.junit.Before;

@@ -1,5 +1,7 @@
 package com.github.athieriot.android.travisci.core.entity;
 
+import com.google.common.collect.ComparisonChain;
+import com.google.common.collect.Ordering;
 import org.joda.time.DateTime;
 import org.joda.time.Duration;
 import org.joda.time.DurationFieldType;
@@ -13,7 +15,7 @@ import java.util.Locale;
 import static org.joda.time.PeriodType.forFields;
 import static org.joda.time.format.PeriodFormat.wordBased;
 
-public class Repository implements Serializable {
+public class Repository implements Serializable, Comparable<Repository> {
 
     public static final Integer RESULT_SUCCESS = 0;
     public static final Integer RESULT_FAILURE = 1;
@@ -186,5 +188,12 @@ public class Repository implements Serializable {
         }
 
         return "Finished: " + prettyFinished;
+    }
+
+    @Override
+    public int compareTo(Repository repository) {
+        return ComparisonChain.start()
+                .compare(this.getLast_build_started_at(), repository.getLast_build_started_at(), Ordering.natural().nullsFirst().reverse())
+                .result();
     }
 }

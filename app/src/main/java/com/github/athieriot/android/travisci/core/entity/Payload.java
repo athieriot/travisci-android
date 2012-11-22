@@ -1,8 +1,11 @@
 package com.github.athieriot.android.travisci.core.entity;
 
+import com.google.common.collect.ComparisonChain;
+import com.google.common.collect.Ordering;
+
 import java.io.Serializable;
 
-public class Payload implements Serializable {
+public class Payload implements Serializable, Comparable<Payload> {
 
     private String type;
 
@@ -62,5 +65,12 @@ public class Payload implements Serializable {
 
     public void setQueue(String queue) {
         this.queue = queue;
+    }
+
+    @Override
+    public int compareTo(Payload payload) {
+        return ComparisonChain.start()
+                .compare(this.getRepository(), payload.getRepository(), Ordering.natural().nullsLast())
+                .result();
     }
 }

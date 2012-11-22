@@ -54,6 +54,7 @@ public class WorkerListAdapter extends AlternatingColorListAdapter<Worker> {
         setText(R.id.w_state, worker.getState());
 
         Repository repository = worker.getPayload() == null ? null : worker.getPayload().getRepository();
+
         if(worker.getPayload() != null && repository != null) {
             setText(R.id.w_r_name, repository.getSlug());
             setText(R.id.w_r_number, repository.getLast_build_number());
@@ -72,6 +73,7 @@ public class WorkerListAdapter extends AlternatingColorListAdapter<Worker> {
         } else {
             setText(R.id.w_r_name, "-");
             setText(R.id.w_r_number, "#");
+            setText(R.id.w_j_branch, "Branch: -");
 
             colorTextViews(BUILDING_COLOR);
         }

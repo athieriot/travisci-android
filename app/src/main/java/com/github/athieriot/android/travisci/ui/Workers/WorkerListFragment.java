@@ -47,11 +47,13 @@ public class WorkerListFragment extends ItemListFragment<Worker> {
             public List<Worker> loadData() throws Exception {
 
                 try {
-                    List<Worker> lastest = serviceProvider.getService().getWorkers();
-                    if (lastest != null)
-                        return lastest;
-                    else
+                    List<Worker> latest = serviceProvider.getService().getWorkers();
+                    if (latest != null) {
+                        Collections.sort(latest);
+                        return latest;
+                    } else {
                         return Collections.emptyList();
+                    }
                 } catch (OperationCanceledException e) {
                     Activity activity = getActivity();
                     if (activity != null)

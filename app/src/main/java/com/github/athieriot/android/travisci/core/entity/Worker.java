@@ -1,10 +1,14 @@
 package com.github.athieriot.android.travisci.core.entity;
 
+import com.google.common.collect.ComparisonChain;
+import com.google.common.collect.Ordering;
 import org.joda.time.DateTime;
+import roboguice.util.Strings;
 
+import java.io.ObjectStreamClass;
 import java.io.Serializable;
 
-public class Worker implements Serializable {
+public class Worker implements Serializable, Comparable<Worker> {
 
     private Long id;
 
@@ -74,6 +78,13 @@ public class Worker implements Serializable {
 
     public void setLast_error(String last_error) {
         this.last_error = last_error;
+    }
+
+    @Override
+    public int compareTo(Worker worker) {
+        return ComparisonChain.start()
+                .compare(this.getPayload(), worker.getPayload(), Ordering.natural().nullsLast())
+                .result();
     }
 }
 

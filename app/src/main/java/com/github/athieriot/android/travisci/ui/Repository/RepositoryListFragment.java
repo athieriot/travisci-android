@@ -47,11 +47,13 @@ public class RepositoryListFragment extends ItemListFragment<Repository> {
             public List<Repository> loadData() throws Exception {
 
                 try {
-                    List<Repository> lastest = serviceProvider.getService().getRepositories();
-                    if (lastest != null)
-                        return lastest;
-                    else
+                    List<Repository> latest = serviceProvider.getService().getRepositories();
+                    if (latest != null) {
+                        Collections.sort(latest);
+                        return latest;
+                    } else {
                         return Collections.emptyList();
+                    }
                 } catch (OperationCanceledException e) {
                     Activity activity = getActivity();
                     if (activity != null)
